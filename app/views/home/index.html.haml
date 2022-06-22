@@ -1,5 +1,11 @@
 .container
     %h1 TOP PAGE
 
-    %button.btn.btn-primary
-        ボタン
+    = link_to destroy_user_session_path, data: { method: 'delete' } do
+        %button.btn.btn-primary
+            ボタン
+
+    - if can?  :update, current_user 
+        update 
+    - if can? :read, current_user 
+        read
