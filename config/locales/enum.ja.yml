@@ -1,0 +1,14 @@
+ja:
+  enum:
+    subjects:
+      other: 'その他'
+      japanese: '国語'
+      math: '数学'
+      socialstudy: '社会'
+      science: '理科'
+      english: '英語'
+    statuses:
+      not_yet: '未着手'
+      in_progress: '実行中'
+      done: '完了'
+      
