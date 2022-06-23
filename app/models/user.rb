@@ -24,7 +24,7 @@ class User < ApplicationRecord
   validates_uniqueness_of :username
   validates_presence_of :username
 
-  has_many: tasks
+  has_many :tasks
 
   # nameを利用してログイン
   def self.find_first_by_auth_conditions(warden_conditions)
