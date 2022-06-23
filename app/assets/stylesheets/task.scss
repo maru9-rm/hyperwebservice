@@ -1,3 +1,38 @@
+
+
+// index //////////////////////////////////////////////
+
+.task-wrapper {
+    a {
+        display: block;
+        text-decoration: none;
+        color: black;
+    }
+}
+
+.task-box {
+    text-align: center;
+    border: 5px solid white;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    padding: 3px;
+    padding: 10px 5px ;
+
+
+    
+}
+
+.task-title {
+    font-size: 30px;
+    font-weight: 500;
+}
+
+
+
+
+
+// new //////////////////////////////////////////////
+
 .field {
     margin-top: 20px;
 }
@@ -6,6 +41,7 @@
     width: 200px;
     font-size: 40px;
     line-height: 42px;
+    font-weight: normal;
 
 }
 
