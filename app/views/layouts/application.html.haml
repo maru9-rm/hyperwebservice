@@ -11,9 +11,9 @@
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     - if flash[:notice]
-      .alert.alert-info
+      .alert.alert-info.alert-position
         = flash[:notice]
     - if flash[:alert]
-      .alert.alert-danger
+      .alert.alert-danger.alert-position
         = flash[:alert]
     = yield
