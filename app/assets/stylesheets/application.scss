@@ -3,3 +3,21 @@
 @import "header";
 @import "flash";
 @import "login";
+@import "task";
+
+
+.section-title {
+    text-align: right;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 50px;
+    margin-right: 20px;
+}
+
+.btn-submit {
+    width: 200px;
+    margin: 50px 0;
+    height: 42px;
+    font-size: 16px;
+
+}
