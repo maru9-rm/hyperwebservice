@@ -1,0 +1,42 @@
+.header {
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+
+    a {
+        color: white;
+        text-decoration: none;
+    }
+
+    &-title {
+        font-size: 1.4em;
+        line-height: 50px;
+
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+
+    }
+    li {
+        list-style: none;
+        margin-left: 5px;
+        line-height: 50px;
+        
+    }
+
+    @media screen and (max-width: 600px) {
+        display: block;
+
+        &-title {
+            width: 100%;
+            text-align: center;
+            font-size: 2em;
+        }
+        li {
+            font-size: 1.4em;
+        }
+      }
+}
+
