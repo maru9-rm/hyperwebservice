@@ -1,0 +1,10 @@
+.container
+    = link_to new_task_path do
+        %button 新しい課題を追加する
+
+    - @tasks.each do |task|
+        %H1= task.title
+        %p= task.content
+        %p= I18n.t("enum.subjects.#{task.subject}")
+        %p= I18n.t("enum.statuses.#{task.status}")
+        %p= task.created_at.strftime('%m/%d')

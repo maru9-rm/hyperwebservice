@@ -1,0 +1,19 @@
+.container
+    %h1 new
+
+    = form_with(model: @task, url: tasks_path, local: true) do |f|
+        .field
+            = f.label :title, '課題内容', class:""
+            = f.text_field :title, class:""
+        .field
+            = f.label :content, '詳細', class:""
+            = f.text_area :content, class:""
+        .field
+            = f.label :subject, '教科', class:""
+            = f.select :subject, Task.subjects.map { |k, v| [ I18n.t("enum.subjects.#{k}"), k ] }, {}, { class: "" }
+        .field
+            = f.label :status, '達成状況', class:""
+            = f.select :status, Task.statuses.map { |k, v| [ I18n.t("enum.statuses.#{k}"), k ] }, {}, { class: "" }
+        
+        .actions
+            = f.submit "課題を追加する", class: ""
