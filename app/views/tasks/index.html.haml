@@ -1,12 +1,19 @@
 =render 'commons/header'
 
+.section-title 課題一覧
+
 .container
     = link_to new_task_path do
-        %button 新しい課題を追加する
+        %button.btn.btn-primary.btn-lg.mb-3 新しい課題を追加する
 
-    - @tasks.each do |task|
-        %H1= task.title
-        %p= task.content
-        %p= I18n.t("enum.subjects.#{task.subject}")
-        %p= I18n.t("enum.statuses.#{task.status}")
-        %p= task.created_at.strftime('%m/%d')
+    .task-wrapper.mb-5
+        - @tasks.each do |task|
+            = link_to task_path(task), class:"task-box row" do
+                .task-title.text-left.ms-2
+                    =task.title
+                .task-content.text-left
+                    %p= task.content
+                .task-info.text-right
+                    ◎教科→#{I18n.t("enum.subjects.#{task.subject}")}　
+                    ◎作成日→ #{task.created_at.strftime('%m/%d')}　
+                    ◎状態→ #{I18n.t("enum.statuses.#{task.status}")}
