@@ -17,10 +17,10 @@ class TasksController < ApplicationController
     def create
         @task = current_user.tasks.build(task_params)
         if @task.save
-          redirect_to root_path, notice: 'Saved in successfully.'
+          redirect_to tasks_path, notice: '新しい課題を作成しました。'
         # notice: でフラッシュメッセージにテキスト(ハッシュ)を持たせてリクエストを送ることができる。
         else
-          flash.now[:error] = 'Failed to save. Please check the error message.'
+          flash.now[:error] = '課題の作成に失敗しました。エラーメッセージを確認してください。'
           render :new
           # この場合はレンダーなので、URLにリクエストを送るわけではないため、その場ですぐフラッシュを表示させるためにflash.nowで！
         end
@@ -34,9 +34,9 @@ class TasksController < ApplicationController
     def update
         @task = Task.find(params[:id])
         if @task.update(task_params)
-          redirect_to admin_tasks_path, notice: '更新できました'
+          redirect_to tasks_path, notice: '更新できました。'
         else
-          flash.now[:error] = '更新できませんでした'
+          flash.now[:error] = '更新できませんでした。'
           render :edit
         end
   
@@ -49,7 +49,7 @@ class TasksController < ApplicationController
         # @はつける必要ない。なぜならビューで使うわけじゃないから。
         task.destroy!
         # データを渡すわけじゃないので失敗するわけない、失敗したときはアプリがおかしいので例外が発生するように！をつける
-        redirect_to root_path, notice: '削除に成功しました'
+        redirect_to tasks_path, notice: '削除に成功しました。'
     end
 
     private
