@@ -9,7 +9,7 @@
     .task-wrapper.mb-5
         - @tasks.each do |task|
             = link_to task_path(task), class:"task-box row" do
-                .task-title.text-left.ms-2
+                .task-title.text-left
                     =task.title
                 .task-content.text-left
                     %p= task.content

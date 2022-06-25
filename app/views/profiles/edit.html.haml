@@ -1,0 +1,37 @@
+=render 'commons/header'
+
+.section-title プロフィール編集
+
+.container
+    %ul
+        -@profile.errors.full_messages.each do |message|
+            %li= message
+
+    = form_with(model: @profile, url: profile_path, method: 'put', local: true) do |f|
+        .field
+            .field-label
+                = f.label :birthday, '誕生日', class: 'form-label'
+            .field-field
+                = f.date_field :birthday, class: 'form-field profile-form'
+        .field
+            .field-label
+                = f.label :club, '部活', class: 'form-label'
+            .field-field
+                = f.text_field :club, class: 'form-field profile-form'
+        .field
+            .field-label
+                = f.label :long_term_goal, '志望校', class: 'form-label'
+            .field-field
+                = f.text_field :long_term_goal, class: 'form-field profile-form'
+        .field
+            .field-label
+                = f.label :short_term_goal, '今の目標', class: 'form-label'
+            .field-field
+                = f.text_field :short_term_goal, class: 'form-field profile-form'
+        .field
+            .field-label
+                = f.label :memo, '備考', class: 'form-label'
+            .field-field
+                = f.text_area :memo, class: 'form-field form-area'
+
+        = f.submit '保存', class: 'btn btn-primary btn-lg btn-submit'

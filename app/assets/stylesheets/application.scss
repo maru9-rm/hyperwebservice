@@ -4,6 +4,7 @@
 @import "flash";
 @import "login";
 @import "task";
+@import "profile";
 
 
 .section-title {
@@ -24,4 +25,8 @@
 
 .mt-100 {
     margin-top: 100px;
+}
+
+.mb-100 {
+    margin-bottom: 100px;
 }
