@@ -25,6 +25,11 @@ class User < ApplicationRecord
   validates_presence_of :username
 
   has_many :tasks
+  has_one :profile
+
+  def prepare_profile
+    profile || build_profile
+  end
 
   # nameを利用してログイン
   def self.find_first_by_auth_conditions(warden_conditions)
