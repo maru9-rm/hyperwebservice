@@ -10,23 +10,23 @@
     .profile-label
         誕生日
     .profile-birthday.profile-info
-        →#{current_user.profile.birthday.strftime('%m/%d')}
+        →#{current_user.profile&.birthday&.strftime('%m/%d')}
     .profile-label
         部活
     .profile-club.profile-info
-        →#{current_user.profile.club}
+        →#{current_user.profile&.club}
     .profile-label
         志望校
     .profile-long_term_goal.profile-info
-        →#{current_user.profile.long_term_goal}
+        →#{current_user.profile&.long_term_goal}
     .profile-label
         現在の目標
     .profile-short_term_goal.profile-info
-        →#{current_user.profile.short_term_goal}
+        →#{current_user.profile&.short_term_goal}
     .profile-label
         備考
     .profile-memo.profile-info
-        →#{current_user.profile.memo}
+        →#{current_user.profile&.memo}
     
     =link_to edit_profile_path do
         %button.btn.btn-primary.btn-lg.mt-4.mx-3.mb-100
