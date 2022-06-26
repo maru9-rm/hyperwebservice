@@ -1,0 +1,46 @@
+.home {
+
+    &-wrapper {
+        max-width: 900px;
+    }
+
+    &-title {
+        border-bottom: 1px solid black;
+        font-weight: bold;
+        font-size: 1.5em;
+        margin-bottom: 5px;
+        margin-top: 30px;
+
+        &-news {
+            margin-top: 0;
+        }
+    }
+
+
+
+    &-content {
+        font-size: 1.5em;
+    }
+
+
+}
+
+
+.communication-messages {
+    margin-top: 10px;
+    border: 5px solid gainsboro;
+    border-radius: 5px;
+    padding:10px;
+
+
+
+    li {
+        list-style: none;
+        font-size: 1.5em;
+
+    }
+}
+
+textarea {
+ width: 100%;   
+}

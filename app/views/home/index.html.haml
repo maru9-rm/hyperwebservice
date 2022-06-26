@@ -1,13 +1,37 @@
 =render 'commons/header'
 
-.container
-    %h1 TOP PAGE
+.section-title TOP PAGE
 
-    = link_to destroy_user_session_path, data: { method: 'delete' } do
-        %button.btn.btn-primary
-            ボタン
+.container.home-wrapper
+    .home-title-news.home-title
+        お知らせ
+    %ul.home-news-contents.home-content
+        .d-flex.justify-content-between
+            %li 7/28はお休みです。
+            %p 06/30
+    .home-title-tasks-list.home-title
+        課題一覧
 
+    %ul.home-tasks-list.home-content
+        -@tasks.each do |task|
+            .d-flex.justify-content-between
+                %li
+                    #{task.title}（#{I18n.t("enum.subjects.#{task.subject}")}）
+                =I18n.t("enum.statuses.#{task.status}")
+    - if can? :read, current_user 
+        .communication.home-title
+            連絡欄
+        %ul.communication-messages
+            %li #{current_user.username}：すみません、ちょっとよろしいでしょうか。
+            %li teacher：なんでしょう。遠慮なくどうぞ。
+            %li #{current_user.username}：実は、次の宿題がなんだったかをメモ取るのを忘れてしまっていました。すみませんが、教えていただけないでしょうか。
+            %li teacher：なるほど。宿題は出していませんよ。忘れ物だけしないように注意してください。
+            %li #{current_user.username}：わかりました！ありがとうございました！
+
+        .create-message-box
+            %textarea{placeholder:"メッセージを入力してください"}
+
+        %button.btn.btn-primary.btn-submit.mt-1 メッセージ送信
     - if can?  :update, current_user 
         update 
-    - if can? :read, current_user 
-        read
+
