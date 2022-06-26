@@ -5,4 +5,8 @@ Rails.application.routes.draw do
   resource :profile
   
   resources :tasks
+
+  namespace :admin do
+    resources :notifications
+  end
 end

@@ -1,0 +1,23 @@
+= render 'commons/header'
+
+.section-title お知らせ編集
+
+.container
+    %ul
+        - @notification.errors.full_messages.each do |message|
+            %li= message
+    = form_with(model: @notification, url: admin_notifications_path, local: true) do |f|
+        .field
+            .field-label
+                = f.label :title, 'タイトル', class:"form-label"
+            .field-field
+                = f.text_field :title, class: 'form-field'
+        .field
+            .field-label
+                = f.label :content, '内容', class:"form-label"
+            .field-field
+                = f.text_area :content, class: 'form-field form-area'
+            = f.submit '保存', class: 'btn btn-primary btn-lg btn-submit mb-5 mt-100'
+
+    = link_to root_path do
+        %button.btn.btn-primary.btn-lg.btn-submit.mt-1 キャンセル

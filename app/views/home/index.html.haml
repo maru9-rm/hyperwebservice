@@ -6,9 +6,13 @@
     .home-title-news.home-title
         お知らせ
     %ul.home-news-contents.home-content
-        .d-flex.justify-content-between
-            %li 7/28はお休みです。
-            %p 06/30
+        -@notifications.each do |notification|
+            .d-flex.justify-content-between
+                %p
+                    【#{notification.title}】
+                    %br
+                    　#{notification.content}
+                %p #{notification.created_at.strftime('%m/%d')}
     .home-title-tasks-list.home-title
         課題一覧
 
@@ -32,6 +36,4 @@
             %textarea{placeholder:"メッセージを入力してください"}
 
         %button.btn.btn-primary.btn-submit.mt-1 メッセージ送信
-    - if can?  :update, current_user 
-        update 
 
