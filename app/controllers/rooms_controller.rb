@@ -6,7 +6,11 @@ class RoomsController < ApplicationController
     end
 
     def show
-        @room = Room.find(params[:id])
+        if Room.find_by(id: params[:id]).nil?
+            @room = Room.create!(id: params[:id])
+        else 
+            @room = Room.find(params[:id])
+        end
         @messages = @room.messages
     end
 

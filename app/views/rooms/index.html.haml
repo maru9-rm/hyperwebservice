@@ -1,7 +1,9 @@
+=render 'commons/header'
 
+.section-title Chat Room List
 
 .container
     %div
         %ul
             - @rooms.each do |room|
-                %li= link_to "ROOM#{room.id}", room_path(room)
+                %li= link_to "#{User.find_by(id: room.id).username}", room_path(room)
