@@ -1,8 +1,12 @@
+=render 'commons/header'
+
+.section-title Chat Room
+
 .container
-    %H1 Chat room
-    #messages
-    = render @messages
 
+    .message-box#messages{"data-room_id" => "#{@room.id}"}
+        = render @messages
+    .text-end
+        = label_tag :content, 'メッセージ：'
+        = text_field_tag :content, nil, data: { behavior: 'room_speaker' }, class: "message-form"
 
-    = label_tag :content, 'Say something:'
-    = text_field_tag :content, nil, data: { behavior: 'room_speaker' }

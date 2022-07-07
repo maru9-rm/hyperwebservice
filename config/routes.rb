@@ -6,9 +6,10 @@ Rails.application.routes.draw do
   
   resources :tasks
 
+  resources :rooms
+
   namespace :admin do
     resources :notifications
   end
 
-  get 'rooms/show'
 end
