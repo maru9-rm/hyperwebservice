@@ -2,7 +2,7 @@
   .header-title
     =link_to "HYPERWEBSERVICE", root_path
 
-  %ul.d-flex.justify-content-between
+  %ul.d-flex.justify-content-end.justify-content-sm-start.flex-wrap
     - if can?  :update, current_user 
       %li
         =link_to "Notification", admin_notifications_path
