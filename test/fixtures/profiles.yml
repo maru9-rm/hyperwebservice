@@ -7,6 +7,7 @@
 #  club            :string
 #  long_term_goal  :string
 #  memo            :text
+#  nickname        :string
 #  short_term_goal :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null

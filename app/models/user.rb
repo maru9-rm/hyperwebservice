@@ -27,6 +27,7 @@ class User < ApplicationRecord
   has_many :tasks
   has_one :profile
   has_many :notifications
+  has_many :messages
 
   def prepare_profile
     profile || build_profile
@@ -52,6 +53,14 @@ class User < ApplicationRecord
 
   def will_save_change_to_email?
     false
+  end
+
+  def displayname
+    if profile&.nickname.present?
+      profile.nickname
+    else
+      username
+    end
   end
 
 end

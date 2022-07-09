@@ -1,0 +1,29 @@
+.message-box {
+    width: 100%;
+    min-height: 100px;
+    border: solid 1px black;
+    padding: 5px;
+    margin-bottom: 15px;
+}
+
+.message-form {
+
+    width: 300px;
+}
+
+.chat-user-list {
+
+    &-link {
+        display: block;
+    }
+
+    li {
+        list-style: none;
+        border: 1px solid black;
+        width: 100px;
+        text-align: center;
+        border-radius: 100px;
+        margin-bottom: 5px;
+        
+    }
+}

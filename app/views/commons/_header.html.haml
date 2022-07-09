@@ -2,12 +2,17 @@
   .header-title
     =link_to "HYPERWEBSERVICE", root_path
 
-  %ul.d-flex.justify-content-between
+  %ul.d-flex.justify-content-end.justify-content-sm-start.flex-wrap
     - if can?  :update, current_user 
       %li
         =link_to "Notification", admin_notifications_path
     %li
       =link_to "Home", root_path
+    %li
+      -if current_user.admin?
+        =link_to "Chat", rooms_path
+      -else
+        =link_to "Chat", room_path(current_user.id)
     %li
       =link_to "Profile", profile_path
     %li
