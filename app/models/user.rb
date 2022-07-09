@@ -55,4 +55,12 @@ class User < ApplicationRecord
     false
   end
 
+  def displayname
+    if profile&.nickname.present?
+      profile.nickname
+    else
+      username
+    end
+  end
+
 end

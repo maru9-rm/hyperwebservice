@@ -10,6 +10,11 @@
     = form_with(model: @profile, url: profile_path, method: 'put', local: true) do |f|
         .field
             .field-label
+                = f.label :nickname, '名前', class: 'form-label'
+            .field-field
+                = f.text_field :nickname, class: 'form-field profile-form'
+        .field
+            .field-label
                 = f.label :birthday, '誕生日', class: 'form-label'
             .field-field
                 = f.date_field :birthday, class: 'form-field profile-form'

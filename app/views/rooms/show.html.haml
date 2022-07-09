@@ -3,6 +3,8 @@
 .section-title Chat Room
 
 .container
+    -if current_user.admin?
+        ■#{User.find_by(id: @room.id).displayname}（#{User.find_by(id: @room.id).username}）
 
     .message-box#messages{"data-room_id" => "#{@room.id}"}
         = render @messages
