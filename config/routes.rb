@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => 'users/registrations' }
+  
   root to: 'home#index'
 
   resource :profile
@@ -11,5 +12,6 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :notifications
   end
+
 
 end
