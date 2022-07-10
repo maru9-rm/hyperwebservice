@@ -3,12 +3,20 @@
 .section-title Chat Room
 
 .container
-    -if current_user.admin?
-        ■#{User.find_by(id: @room.id).displayname}（#{User.find_by(id: @room.id).username}）
+    -if current_user == User.find_by(id: params[:id]) || current_user.admin?
+        -if current_user.admin?
+            ■#{User.find_by(id: @room.id).displayname}（#{User.find_by(id: @room.id).username}）
 
-    .message-box#messages{"data-room_id" => "#{@room.id}"}
-        = render @messages
-    .text-end
-        = label_tag :content, 'メッセージ', class: "p-3"
-        = text_field_tag :content, nil, data: { behavior: 'room_speaker' }, class: "message-form"
+        .message-box#messages{"data-room_id" => "#{@room.id}"}
+            = render @messages
+        .text-end
+            = label_tag :content, 'メッセージ', class: "p-3"
+            = text_field_tag :content, nil, data: { behavior: 'room_speaker' }, class: "message-form"
+
+
+    -else 
+        .text-center.fs-1.mt-100.fw-bold
+            【ERROR】 このChat RoomはあなたのChat Roomではありません。
+        .text-center.fs-1.mt-5
+            =link_to "Chat Roomへ移動", room_path(current_user.id)
 
