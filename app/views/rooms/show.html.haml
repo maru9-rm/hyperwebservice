@@ -5,7 +5,7 @@
 .container
     -if current_user == User.find_by(id: params[:id]) || current_user.admin?
         -if current_user.admin?
-            ■#{User.find_by(id: @room.id).displayname}（#{User.find_by(id: @room.id).username}）
+            ■#{User.find_by(id: @room.id)&.displayname}（#{User.find_by(id: @room.id)&.username}）
 
         .message-box#messages{"data-room_id" => "#{@room.id}"}
             = render @messages

@@ -1,9 +1,10 @@
 .message-box {
     width: 100%;
-    min-height: 100px;
+    height: 180px;
     border: solid 1px black;
     padding: 5px;
     margin-bottom: 15px;
+    overflow-y: auto;
 }
 
 .message-form {

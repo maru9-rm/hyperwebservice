@@ -7,4 +7,4 @@
         %ul.chat-user-list
             - @rooms.each do |room|
                 %li
-                    = link_to "#{User.find_by(id: room.id).username}", room_path(room), class: "chat-user-list-link"
+                    = link_to "#{User.find_by(id: room.id)&.username}", room_path(room), class: "chat-user-list-link"
