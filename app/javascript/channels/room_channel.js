@@ -14,8 +14,15 @@ $(function() {
     },
 
     received: function(data) {
-      return $('#messages').append(data['message']);
+      $('#messages').append(data['message']);
+      var element = document.getElementById('messages');
+      element.scrollTop = element.scrollHeight;
+      return
     },
+
+
+
+    
 
     speak: function(message) {
       return this.perform('speak', {
@@ -32,3 +39,5 @@ $(function() {
     }
   });
 });
+
+
