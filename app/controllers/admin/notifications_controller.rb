@@ -1,5 +1,7 @@
 class Admin::NotificationsController < Admin::ApplicationController
-    load_and_authorize_resource
+    # load_and_authorize_resource
+    prepend_before_action :require_no_authentication, only: [:cancel]
+    before_action :creatable?
     
     def index
         @notifications = Notification.all.order(id: :DESC)
@@ -46,6 +48,26 @@ class Admin::NotificationsController < Admin::ApplicationController
 
     def notification_params
       params.require(:notification).permit(:title, :content).merge(user_id: current_user.id)
+    end
+
+    protected
+
+    def current_user_is_admin?
+      user_signed_in? && current_user.admin?
+    end
+  
+    def sign_up(resource_name, resource)
+      if !current_user_is_admin?
+        sign_in(resource_name, resource)
+      end
+    end
+  
+    def creatable?
+      raise CanCan::AccessDenied unless user_signed_in?
+  
+      if !current_user_is_admin?
+        raise CanCan::AccessDenied
+      end
     end
 
 end
