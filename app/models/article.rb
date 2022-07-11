@@ -17,6 +17,7 @@
 #
 class Article < ApplicationRecord
     belongs_to :user
+    has_rich_text :content
 
     enum status: { draft: 0, publish: 1 }
 end

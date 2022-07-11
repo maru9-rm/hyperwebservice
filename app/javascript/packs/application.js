@@ -28,3 +28,5 @@ window.onload = function() {
         // ↪︎ area要素のスクロールされた時の最も高い場所をarea要素自体の最も高い場所として指定してあげる
       }
     }
+require("trix")
+require("@rails/actiontext")
