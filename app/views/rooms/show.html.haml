@@ -9,9 +9,9 @@
 
         .message-box#messages{"data-room_id" => "#{@room.id}"}
             = render @messages
-        .text-end
-            = label_tag :content, 'メッセージ', class: "p-3"
-            = text_field_tag :content, nil, data: { behavior: 'room_speaker' }, class: "message-form"
+        .text-end.row.mb-5
+            = label_tag :content, 'メッセージ', class: "message-label col-3 m-0"
+            = text_field_tag :content, nil, data: { behavior: 'room_speaker' }, class: "message-form col-8"
 
 
     -else 
