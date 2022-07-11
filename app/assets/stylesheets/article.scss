@@ -1,0 +1,25 @@
+.article {
+    &-wrapper {
+        padding: 5px;
+    }
+
+    &-title {
+        font-size: 2em;
+        margin-bottom: 5px;
+        border-bottom: 2px solid grey;
+        
+    }
+
+    &-tag {
+        text-align: right;
+        margin-right: 20px;
+        margin-bottom: 30px;
+
+    }
+
+    &-content {
+        line-height: 25px;
+    }
+
+}
+

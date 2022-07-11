@@ -1,0 +1,15 @@
+=render 'commons/header'
+
+.section-title Articles
+
+.container
+    -if current_user.admin?
+        .text-right.mb-5
+            =link_to "新しい記事を書く", new_article_path, class: ""
+        -@articles.each do |article|
+            =render 'article', article: article
+
+    -else
+        -@published_articles.each do |article|
+            =render 'article', article: article
+

@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   resources :rooms
 
+  resources :articles
+
   namespace :admin do
     resources :notifications
   end

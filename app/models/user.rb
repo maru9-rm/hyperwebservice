@@ -28,6 +28,8 @@ class User < ApplicationRecord
   has_one :profile
   has_many :notifications
   has_many :messages
+  has_many :articles
+
 
   def prepare_profile
     profile || build_profile
