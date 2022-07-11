@@ -1,11 +1,15 @@
 .header {
-    background-color: black;
+    background-color: #303030;
     display: flex;
     justify-content: space-between;
+    font-family: Tahoma, Arial, Helvetica, sans-serif;
+    flex-wrap: wrap;
 
     a {
         color: white;
+        font-size: 13px;
         text-decoration: none;
+        margin: 0 5px;
     }
 
     &-title {

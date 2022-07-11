@@ -1,26 +1,27 @@
 .header.px-5
   .header-title
-    =link_to "HYPERWEBSERVICE", root_path
+    =link_to "HYPERWEBSERVICE", root_path, class: "fs-1 fw-bold"
 
-  %ul.d-flex.justify-content-end.justify-content-sm-start.flex-wrap
-    %li
-      =link_to "Home", root_path
+  %ul.d-flex.justify-content-center.justify-content-sm-start.flex-wrap
+
     -if current_user.admin?
       %li
-        =link_to "Notification", admin_notifications_path, class: "text-warning"
+        =link_to "NOTIFICATION", admin_notifications_path, class: "text-warning"
       %li
-        =link_to "User", new_user_registration_path, class: "text-warning"
+        =link_to "USER", new_user_registration_path, class: "text-warning"
+      %li
+        =link_to "CHAT", rooms_path, class: "text-warning"
     %li
-      -if current_user.admin?
-        =link_to "Chat", rooms_path, class: "text-warning"
-      -else
-        =link_to "Chat", room_path(current_user.id)
+      =link_to "HOME", root_path
     %li
-      =link_to "Articles", articles_path
+      -unless current_user.admin?
+        =link_to "CHAT", room_path(current_user.id)
     %li
-      =link_to "Profile", profile_path
+      =link_to "ARTICLE", articles_path
     %li
-      =link_to "Task", tasks_path
+      =link_to "PROFILE", profile_path
     %li
-      =link_to "Logout", destroy_user_session_path, data: { method: 'delete' }
+      =link_to "TASK", tasks_path
+    %li
+      =link_to "LOGOUT", destroy_user_session_path, data: { method: 'delete' }
 
