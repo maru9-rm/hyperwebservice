@@ -3,19 +3,20 @@
     =link_to "HYPERWEBSERVICE", root_path
 
   %ul.d-flex.justify-content-end.justify-content-sm-start.flex-wrap
+    %li
+      =link_to "Home", root_path
     -if current_user.admin?
       %li
         =link_to "Notification", admin_notifications_path, class: "text-warning"
-    -if current_user.admin?
       %li
         =link_to "User", new_user_registration_path, class: "text-warning"
-    %li
-      =link_to "Home", root_path
     %li
       -if current_user.admin?
         =link_to "Chat", rooms_path, class: "text-warning"
       -else
         =link_to "Chat", room_path(current_user.id)
+    %li
+      =link_to "Articles", articles_path
     %li
       =link_to "Profile", profile_path
     %li

@@ -1,0 +1,12 @@
+=render 'commons/header'
+
+.section-title Articles
+
+.container
+    .article-title.text-warning
+        = @article.title
+    .article-tag
+        Tag：
+        = @article.tag
+    .article-content
+        = @article.content

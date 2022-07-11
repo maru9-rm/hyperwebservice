@@ -11,4 +11,6 @@ ja:
       not_yet: '未着手'
       in_progress: '実行中'
       done: '完了'
+      draft: '下書き'
+      publish: '公開'
       
