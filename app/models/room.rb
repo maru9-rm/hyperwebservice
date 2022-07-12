@@ -7,5 +7,5 @@
 #  updated_at :datetime         not null
 #
 class Room < ApplicationRecord
-    has_many :messages
+    has_many :messages,dependent: :destroy
 end

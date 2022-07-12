@@ -2,8 +2,7 @@
     =link_to article_path(article) do
         ⬜️
         = article.title
-    = article.tag
-    　#{article.created_at.strftime('%y-%m-%d')}
+        .float-end 　#{article.created_at.strftime('%y/%m/%d')}
     -if current_user.admin?
         [状態：#{I18n.t("enum.statuses.#{article.status}")}]
         =link_to "編集", edit_article_path(article), class:"ms-3"

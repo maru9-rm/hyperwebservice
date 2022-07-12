@@ -14,7 +14,6 @@
 
 body {
     font-size: 16px;
-    font-family: "Open Sans", Helvetica, Arial, sans-serif;
 }
 
 .section-title {
@@ -24,6 +23,7 @@ body {
     margin-bottom: 50px;
     margin-right: 20px;
     color: #303030;
+    font-family: Tahoma, Arial, Helvetica, sans-serif;
 }
 
 .btn-submit {
@@ -40,4 +40,13 @@ body {
 
 .mb-100 {
     margin-bottom: 100px;
+}
+
+.page-bottom {
+    margin-bottom: 100px;
+}
+
+a:hover {
+    text-decoration: none;
+
 }

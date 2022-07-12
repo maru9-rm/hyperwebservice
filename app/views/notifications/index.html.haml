@@ -1,0 +1,13 @@
+= render 'commons/header'
+
+.section-title Notification
+
+.container
+    -if current_user.admin?
+        .text-right
+            =link_to new_notification_path do
+                %button.btn.btn-primary.btn-lg 新しいお知らせを作成する
+        .home-title
+    - @notifications.each do |notification|
+        =render 'commons/notification', notification: notification
+.page-bottom

@@ -5,7 +5,8 @@
 .container
     -if current_user.admin?
         .text-right.mb-5
-            =link_to "新しい記事を書く", new_article_path, class: ""
+            =link_to new_article_path, class: "" do
+                %button.btn.btn-primary.btn-lg 新しい記事を書く
         -@articles.each do |article|
             =render 'article', article: article
 

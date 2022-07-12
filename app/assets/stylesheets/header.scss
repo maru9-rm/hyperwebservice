@@ -1,22 +1,28 @@
 .header {
-    background-color: black;
+    background-color: #303030;
     display: flex;
     justify-content: space-between;
+    font-family: Tahoma, Arial, Helvetica, sans-serif;
+    flex-wrap: wrap;
 
     a {
         color: white;
         text-decoration: none;
+        margin: 0 5px;
     }
 
     &-title {
         font-size: 1.4em;
         line-height: 50px;
+        text-decoration:overline;
+        text-decoration:underline;
 
     }
 
     ul {
         margin: 0;
         padding: 0;
+        width: 100%;
 
     }
     li {

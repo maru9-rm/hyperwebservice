@@ -11,9 +11,6 @@ Rails.application.routes.draw do
 
   resources :articles
 
-  namespace :admin do
-    resources :notifications
-  end
-
+  resources :notifications
 
 end
