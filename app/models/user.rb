@@ -27,7 +27,7 @@ class User < ApplicationRecord
   has_many :tasks
   has_one :profile
   has_many :notifications
-  has_many :messages,dependent: :destroy
+  has_many :messages
   has_many :articles
 
 

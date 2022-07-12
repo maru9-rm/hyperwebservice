@@ -6,22 +6,22 @@
 
     -if current_user.admin?
       %li
-        =link_to "NOTIFICATION", admin_notifications_path, class: "text-warning fs-6"
+        =link_to "USER", new_user_registration_path, class: "text-warning fs-4"
       %li
-        =link_to "USER", new_user_registration_path, class: "text-warning fs-6"
+        =link_to "CHAT", rooms_path, class: "text-warning fs-4"
+    %li
+      =link_to "HOME", root_path, class: "fs-4"
+    %li
+      =link_to "NOTIFICATION", notifications_path, class: "fs-4"
+    -unless current_user.admin?
       %li
-        =link_to "CHAT", rooms_path, class: "text-warning fs-6"
+        =link_to "CHAT", room_path(current_user.id), class: "fs-4"
     %li
-      =link_to "HOME", root_path, class: "fs-6"
+      =link_to "ARTICLE", articles_path, class: "fs-4"
     %li
-      -unless current_user.admin?
-        =link_to "CHAT", room_path(current_user.id), class: "fs-6"
+      =link_to "PROFILE", profile_path, class: "fs-4"
     %li
-      =link_to "ARTICLE", articles_path, class: "fs-6"
+      =link_to "TASK", tasks_path, class: "fs-4"
     %li
-      =link_to "PROFILE", profile_path, class: "fs-6"
-    %li
-      =link_to "TASK", tasks_path, class: "fs-6"
-    %li
-      =link_to "LOGOUT", destroy_user_session_path, data: { method: 'delete', confirm: "本当にログアウトしてよろしいですか？" }, class: "fs-6"
+      =link_to "LOGOUT", destroy_user_session_path, data: { method: 'delete', confirm: "本当にログアウトしてよろしいですか？" }, class: "fs-4"
 
