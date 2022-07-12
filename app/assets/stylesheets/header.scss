@@ -14,7 +14,6 @@
     &-title {
         font-size: 1.4em;
         line-height: 50px;
-        text-decoration:overline;
         text-decoration:underline;
 
     }
@@ -22,12 +21,11 @@
     ul {
         margin: 0;
         padding: 0;
-        width: 100%;
 
     }
     li {
         list-style: none;
-        margin-left: 10px;
+        margin:0 5px;
         line-height: 50px;
         
     }
@@ -39,9 +37,13 @@
             width: 100%;
             text-align: center;
             font-size: 2em;
+            padding: 10px 0;
+            line-height: 30px;
         }
         li {
             font-size: 1.4em;
+            line-height: 10px;
+            padding-bottom: 10px;
         }
       }
 }

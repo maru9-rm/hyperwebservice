@@ -21,7 +21,8 @@
                 .d-flex.justify-content-between
                     %li
                         #{task.title}（#{I18n.t("enum.subjects.#{task.subject}")}）
-                    =I18n.t("enum.statuses.#{task.status}")
+                    .task-status
+                        =I18n.t("enum.statuses.#{task.status}")
     - if can? :read, current_user
         .communication.home-title
             最新のメッセージ
