@@ -5,6 +5,10 @@
     padding: 5px;
     margin-bottom: 15px;
     overflow-y: auto;
+
+    @media screen and (max-width: 479px) {
+        height: 300px;
+    }
 }
 
 .message-label {

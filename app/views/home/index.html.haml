@@ -6,8 +6,12 @@
     .home-title-news.home-title
         お知らせ
     %ul.home-news-contents.home-content
-        -@notifications.each do |notification|
-            =render 'commons/notification', notification: notification
+        =link_to notifications_path do
+            -@notifications.each do |notification|
+                .notification-box
+                    =notification.created_at.strftime('%m/%d')
+                    　#{notification.title}
+                
     .home-title-tasks-list.home-title
         課題一覧
 
@@ -24,3 +28,5 @@
         =link_to room_path(current_user.id),class: "communication-link" do
             %ul.communication-messages#messages{"data-room_id" => "#{@room.id}"}
                 = render @messages
+
+.page-bottom
