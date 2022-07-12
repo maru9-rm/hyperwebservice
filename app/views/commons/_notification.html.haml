@@ -1,0 +1,9 @@
+.notification-box
+    =notification.created_at.strftime('%m/%d')
+    #{notification.title}
+.notification-content.mb-4
+    =notification.content
+    -if current_user.admin?
+        .float-end.mt-0
+            =link_to "[edit]", edit_admin_notification_path(id: notification.id), class:"text-primary me-3"
+            =link_to "[delete]", admin_notification_path(id: notification.id), data: { method: 'delete', confirm: "本当に削除してよろしいですか？"}, class:"text-danger me-3"

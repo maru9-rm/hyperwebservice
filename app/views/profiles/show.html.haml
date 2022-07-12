@@ -33,7 +33,7 @@
             備考
         .profile-memo.profile-info
             →#{current_user.profile&.memo}
-    
-    =link_to edit_profile_path do
-        %button.btn.btn-primary.btn-lg.mt-100.mx-3.mb-100
-            プロフィールを編集する
+    .text-right
+        =link_to edit_profile_path do
+            %button.btn.btn-primary.btn-lg.mt-100.mx-3.mb-100
+                プロフィールを編集する

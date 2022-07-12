@@ -3,14 +3,9 @@
 .section-title お知らせ一覧
 
 .container
-    =link_to new_admin_notification_path do
-        %button.btn.btn-primary.btn-lg 新しいお知らせを作成する
+    .text-right
+        =link_to new_admin_notification_path do
+            %button.btn.btn-primary.btn-lg 新しいお知らせを作成する
     .home-title
     - @notifications.each do |notification|
-        .notification-box.mt-5.mb-3
-            =notification.created_at.strftime('%m/%d')
-            【#{notification.title}】
-            =notification.content
-        .ms-4
-            =link_to "edit", edit_admin_notification_path(id: notification.id), class:"btn btn-primary"
-            =link_to "delete", admin_notification_path(id: notification.id), data: { method: 'delete', confirm: "本当に削除してよろしいですか？"}, class:"btn btn-danger"
+        =render 'commons/notification', notification: notification

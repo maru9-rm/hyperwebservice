@@ -3,10 +3,13 @@
 .section-title Articles
 
 .container
-    .article-title.text-warning
+    .article-title.fw-bold
         = @article.title
-    .article-tag
-        Tag：
-        = @article.tag
+        .article-tag.float-end
+            Tag：
+            = @article.tag
     .article-content
         = @article.content
+
+
+.page-bottom

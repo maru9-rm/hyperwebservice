@@ -3,8 +3,9 @@
 .section-title Tasks
 
 .container
-    = link_to new_task_path do
-        %button.btn.btn-primary.btn-lg.mb-3 新しい課題を追加する
+    .text-right
+        = link_to new_task_path do
+            %button.btn.btn-primary.btn-lg.mb-3 新しい課題を追加する
 
     .task-wrapper.mb-5
         - @tasks.each do |task|
@@ -14,6 +15,6 @@
                 .task-content.text-left
                     %p= task.content
                 .task-info.text-right
-                    ◎教科→#{I18n.t("enum.subjects.#{task.subject}")}　
-                    ◎作成日→ #{task.created_at.strftime('%m/%d')}　
-                    ◎状態→ #{I18n.t("enum.statuses.#{task.status}")}
+                    教科 【#{I18n.t("enum.subjects.#{task.subject}")}】
+                    作成日 【#{task.created_at.strftime('%m/%d')}】
+                    状態 【#{I18n.t("enum.statuses.#{task.status}")}】
