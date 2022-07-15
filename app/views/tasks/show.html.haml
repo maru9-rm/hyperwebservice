@@ -10,21 +10,39 @@
         %p.show-task-description= I18n.t("enum.statuses.#{@task.status}")
     .show-task-content.mt-50
         %h3  情報
+        -if current_user.admin?
+            %p.show-task-description ■ #{@task.user.username}
+        -if @task.command?
+            %p.show-task-description ■ 必修課題
+        -else
+            %p.show-task-description ■ 自己課題
         %p.show-task-description ■ #{@task.created_at.strftime('%m月%d日')}作成
         %p.show-task-description ■ 教科→#{I18n.t("enum.subjects.#{@task.subject}")}
         -if @task.content.empty?
         -else
             %p.show-task-description ■ #{@task.content}
 
+
     .task-show-buttons.mt-100.mb-5.ms-3
         =link_to tasks_path do
             %button.btn.btn-primary.btn-lg.mt-4.mx-3
                 課題一覧に戻る
 
-        =link_to edit_task_path(@task) do
-            %button.btn.btn-primary.btn-lg.mt-4.mx-3
-                課題を編集する
 
-        =link_to task_path(@task), data: { method: 'delete', confirm: "本当に削除してよろしいですか？"} do
-            %button.btn.btn-danger.btn-lg.mt-4.mx-3
-                課題を削除する
+
+        -unless @task.command?
+            =link_to edit_task_path(@task) do
+                %button.btn.btn-primary.btn-lg.mt-4.mx-3
+                    課題を編集する
+            =link_to task_path(@task), data: { method: 'delete', confirm: "本当に削除してよろしいですか？"} do
+                %button.btn.btn-danger.btn-lg.mt-4.mx-3
+                    課題を削除する
+
+        -else
+            -if current_user.admin?
+                =link_to edit_task_path(@task) do
+                    %button.btn.btn-primary.btn-lg.mt-4.mx-3
+                        課題を編集する
+                =link_to task_path(@task), data: { method: 'delete', confirm: "本当に削除してよろしいですか？"} do
+                    %button.btn.btn-danger.btn-lg.mt-4.mx-3
+                        課題を削除する

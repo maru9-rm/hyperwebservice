@@ -3,6 +3,7 @@
 # Table name: tasks
 #
 #  id         :bigint           not null, primary key
+#  command    :boolean
 #  content    :text
 #  status     :integer          default("not_yet"), not null
 #  subject    :integer          default("other"), not null

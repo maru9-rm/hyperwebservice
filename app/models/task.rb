@@ -3,6 +3,7 @@
 # Table name: tasks
 #
 #  id         :bigint           not null, primary key
+#  command    :boolean
 #  content    :text
 #  status     :integer          default("not_yet"), not null
 #  subject    :integer          default("other"), not null
@@ -19,5 +20,5 @@ class Task < ApplicationRecord
     belongs_to :user
 
     enum subject: { other: 0, japanese: 1, math: 2, socialstudy: 3, science: 4, english: 5 }
-    enum status: { not_yet: 0, in_progress: 1, done: 2 }
+    enum status: { not_yet: 0, done: 1, over: 2 }
 end
