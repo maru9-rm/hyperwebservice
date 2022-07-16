@@ -28,6 +28,13 @@
             %button.btn.btn-primary.btn-lg.mt-4.mx-3
                 課題一覧に戻る
 
+        -if @task.status == 'done'
+            %button.btn.btn-primary.btn-lg.mt-4.mx-3
+                完了報告を取り消す
+        -else
+            %button.btn.btn-primary.btn-lg.mt-4.mx-3
+                完了報告をする
+            
 
 
         -unless @task.command?

@@ -6,7 +6,9 @@
 require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("channels")
-require('jquery');
+require('jquery')
+require("trix")
+require("@rails/actiontext")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -28,5 +30,5 @@ window.onload = function() {
         // ↪︎ area要素のスクロールされた時の最も高い場所をarea要素自体の最も高い場所として指定してあげる
       }
     }
-require("trix")
-require("@rails/actiontext")
+
+

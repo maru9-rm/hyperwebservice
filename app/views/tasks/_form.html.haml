@@ -22,4 +22,4 @@
                 = f.select :status, Task.statuses.map { |k, v| [ I18n.t("enum.statuses.#{k}"), k ] }, {}, { class: "form-field" }
         
         .actions
-            = f.submit "課題を追加する", class: "btn btn-primary btn-submit"
+            = f.submit "課題を登録する", class: "btn btn-primary btn-submit"

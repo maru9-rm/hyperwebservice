@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
     before_action :authenticate_user!
     def index
-        @tasks = current_user.tasks
+        @tasks = current_user.tasks.order(status: "ASC").order(created_at: "DESC")
     end
 
     def show
@@ -40,6 +40,10 @@ class TasksController < ApplicationController
           render :edit
         end
   
+    end
+
+    def complete
+      
     end
 
 
