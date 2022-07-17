@@ -1,7 +1,10 @@
-class TasksController < ApplicationController
-    before_action :authenticate_user!
+class TaskManagementsController < ApplicationController
+
     def index
-        @tasks = current_user.tasks.order(status: "ASC").order(created_at: "DESC")
+        @tasks = Task.all
+        @not_yet_tasks = Task.where(status: 0)
+        @complete_tasks = Task.where(status: 1)
+        @over_tasks = Task.where(status: 2)
     end
 
     def show
@@ -10,12 +13,13 @@ class TasksController < ApplicationController
 
 
     def new
-        @task = current_user.tasks.build
+        @task = Task.new
     end
 
 
     def create
-        @task = current_user.tasks.build(task_params)
+        @task = Task.new(task_params)
+        
         if @task.save
           redirect_to tasks_path, notice: '新しい課題を作成しました。'
         # notice: でフラッシュメッセージにテキスト(ハッシュ)を持たせてリクエストを送ることができる。
@@ -42,24 +46,18 @@ class TasksController < ApplicationController
   
     end
 
-    def complete
-      
-    end
-
 
 
     def destroy
         task = current_user.tasks.find(params[:id])
-        # @はつける必要ない。なぜならビューで使うわけじゃないから。
         task.destroy!
-        # データを渡すわけじゃないので失敗するわけない、失敗したときはアプリがおかしいので例外が発生するように！をつける
         redirect_to tasks_path, notice: '削除に成功しました。'
     end
 
     private
 
     def task_params
-      params.require(:task).permit(:title, :content, :subject, :status ).merge(user_id: current_user.id)
+      params.require(:task).permit(:title, :content, :subject, :status, :user_id, :command )
     end
 
 end

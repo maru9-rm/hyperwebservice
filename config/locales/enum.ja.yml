@@ -8,9 +8,9 @@ ja:
       science: '理科'
       english: '英語'
     statuses:
-      not_yet: '未着手'
-      in_progress: '実行中'
+      not_yet: '未完'
       done: '完了'
+      over: '超過'
       draft: '下書き'
       publish: '公開'
       
