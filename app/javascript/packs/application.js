@@ -36,10 +36,10 @@ window.onload = function() {
 
 
  document.addEventListener('DOMContentLoaded', () => {
-  $('.title').on('click', () => {
+  $('#complete').on('click', () => {
 		axios.get('/')
       .then((response) => {
-        console.log(response)
+        window.alert("パオーン")
       })
 	})
 })

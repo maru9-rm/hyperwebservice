@@ -29,11 +29,17 @@
                 課題一覧に戻る
 
         -if @task.status == 'done'
-            %button.btn.btn-primary.btn-lg.mt-4.mx-3
-                完了報告を取り消す
+            = form_with(model: @task, local: true) do |f|
+                .field-field.hidden
+                    = f.select :status, Task.statuses.map { |k, v| [ I18n.t("enum.statuses.#{k}"), k ] }, { selected: "not_yet" }, { class: "form-field" }
+                .actions
+                    = f.submit "完了報告を取り消す", class: "btn btn-primary btn-lg mt-4 mx-3"
         -else
-            %button.btn.btn-primary.btn-lg.mt-4.mx-3
-                完了報告をする
+            = form_with(model: @task, local: true) do |f|
+                .field-field.hidden
+                    = f.select :status, Task.statuses.map { |k, v| [ I18n.t("enum.statuses.#{k}"), k ] }, { selected: "done" }, { class: "form-field" }
+                .actions
+                    = f.submit "完了報告をする", class: "btn btn-primary btn-lg mt-4 mx-3"
             
 
 
@@ -53,3 +59,30 @@
                 =link_to task_path(@task), data: { method: 'delete', confirm: "本当に削除してよろしいですか？"} do
                     %button.btn.btn-danger.btn-lg.mt-4.mx-3
                         課題を削除する
+
+
+
+                        = form_with(model: task, local: true) do |f|
+                            .field
+                                .field-label
+                                    = f.label :title, '課題内容', class:"form-label"
+                                .field-field
+                                    = f.text_field :title, class:"form-field"
+                            .field
+                                .field-label
+                                    = f.label :content, '詳細', class:"form-label"
+                                .field-field
+                                    = f.text_area :content, class:"form-field form-area"
+                            .field
+                                .field-label
+                                    = f.label :subject, '教科', class:"form-label"
+                                .field-field
+                                    = f.select :subject, Task.subjects.map { |k, v| [ I18n.t("enum.subjects.#{k}"), k ] }, {}, { class: "form-field" }
+                            .field
+                                .field-label
+                                    = f.label :status, '達成状況', class:"form-label"
+                                .field-field
+                                    = f.select :status, Task.statuses.map { |k, v| [ I18n.t("enum.statuses.#{k}"), k ] }, {}, { class: "form-field" }
+                            
+                            .actions
+                                = f.submit "課題を登録する", class: "btn btn-primary btn-submit"
