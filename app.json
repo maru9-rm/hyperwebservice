@@ -1,0 +1,16 @@
+{
+    "name": "blog app",
+    "description": "hyperwebservice for ayz",
+    "keywords": [],
+    "website": "",
+    "repository": "https://github.com/maru9-rm/hyperwebservice",
+    "env": {},
+    "addons": [
+      "heroku-postgresql:hobby-dev"
+    ],
+    "buildpacks": [{
+      "url": "heroku/nodejs"
+    }, {
+      "url": "heroku/ruby"
+    }]
+  }
