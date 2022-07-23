@@ -36,10 +36,10 @@ window.onload = function() {
 
 
  document.addEventListener('DOMContentLoaded', () => {
-  $('#complete').on('click', () => {
+  $('.header-title').on('click', () => {
 		axios.get('/')
       .then((response) => {
-        window.alert("パオーン")
+        window.alert("Hyper Web Service !!")
       })
 	})
 })
