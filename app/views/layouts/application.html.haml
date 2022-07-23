@@ -13,9 +13,9 @@
     
   %body
     - if flash[:notice]
-      .alert.alert-info.alert-position
+      .alert.alert-info.alert-position.flash
         = flash[:notice]
     - if flash[:alert]
-      .alert.alert-danger.alert-position
+      .alert.alert-danger.alert-position.flash
         = flash[:alert]
     = yield
