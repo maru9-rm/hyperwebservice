@@ -1,5 +1,12 @@
 
 
 .message
-    %p= "#{message.user.displayname}： #{message.content}"
-  
+    .dropdown.d-flex.justify-content-start
+        %p= "#{message.user.displayname}： #{message.content}"
+        -if current_user == User.find_by(id: message.user.id) || current_user.admin?   
+            .dropdown-content
+                = link_to '削除', message_path(message), data: { method: 'delete', confirm: "本当に削除してよろしいですか？" }
+
+
+
+    

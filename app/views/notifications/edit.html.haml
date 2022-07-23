@@ -6,7 +6,7 @@
     %ul
         - @notification.errors.full_messages.each do |message|
             %li= message
-    = form_with(model: @notification, url: notifications_path, local: true) do |f|
+    = form_with(model: @notification, local: true) do |f|
         .field
             .field-label
                 = f.label :title, 'タイトル', class:"form-label"

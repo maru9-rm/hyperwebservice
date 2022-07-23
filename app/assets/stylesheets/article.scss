@@ -1,6 +1,12 @@
 .article {
     &-wrapper {
         padding: 5px;
+        display: flex;
+
+        @media screen and (max-width: 479px) {
+            display: inline;
+    
+        }
     }
 
     &-title {
@@ -33,5 +39,10 @@
     min-height: 500px;
     overflow-y: auto;
     border: 1px solid black;
+
+}
+
+.edit-wrapper {
+    min-width: 180px;
 
 }
