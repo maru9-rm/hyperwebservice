@@ -35,13 +35,13 @@ window.onload = function() {
 
 
 
- document.addEventListener('DOMContentLoaded', () => {
-  $('.header-title').on('click', () => {
-		axios.get('/')
-      .then((response) => {
-        window.alert("Hyper Web Service !!")
-      })
-	})
-})
+//  document.addEventListener('DOMContentLoaded', () => {
+//   $('.header-title').on('click', () => {
+// 		axios.get('/')
+//       .then((response) => {
+//         window.alert("Hyper Web Service !!")
+//       })
+// 	})
+// })
 
 
