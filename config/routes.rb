@@ -15,4 +15,6 @@ Rails.application.routes.draw do
 
   resources :task_managements
 
+  resources :messages, only: :destroy
+
 end
