@@ -3,6 +3,9 @@
 .section-title TaskManagement
 
 .container
+    .text-right
+        = link_to new_task_management_path do
+            %button.btn.btn-primary.btn-lg.mb-3 新しい課題を追加する
     .complete-tasks
         %h2 完了
         -@complete_tasks.each do |task|
