@@ -26,8 +26,9 @@
     - if can? :read, current_user
         .communication.home-title
             最新のメッセージ
-        =link_to room_path(current_user.id),class: "communication-link" do
-            %ul.communication-messages#messages{"data-room_id" => "#{@room.id}"}
-                = render @messages
+        %ul.communication-messages#messages{"data-room_id" => "#{@room.id}"}
+            = render @messages
+        .text-end
+            =link_to "→チャットルームへ移動", room_path(current_user.id),class: "communication-link"
 
 .page-bottom
